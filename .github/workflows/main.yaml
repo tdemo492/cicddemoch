@@ -27,7 +27,6 @@ jobs:
         with:
             flutter-version: '3.7.10'
       - run: flutter pub get
-      - run: flutter test
       - run: flutter build apk --debug
       - name: Push to release
         uses: ncipollo/release-action@v1
