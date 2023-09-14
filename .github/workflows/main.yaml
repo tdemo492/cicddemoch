@@ -1,0 +1,46 @@
+name: Android Release
+
+# 1
+on:
+  # 2
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # 3
+  workflow_dispatch:
+
+# 4
+jobs:
+  # 5
+  build:
+    # 6
+    name: Build & Release
+    runs-on: macos-latest
+
+    # 7
+    steps:
+      # 8
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v2
+        with:
+          # 11
+          java-version: '12.x'
+      -  uses: subosito/flutteraction@v1
+         with:
+            flutter-version: '3.7.10'
+       - run: flutter pub get
+       - run: flutter test
+       - run: flutter build apk --debug
+       - name: Push to release
+         uses:
+            artifacts: "build/app/output/apk/debug/*"
+            tag: v1.0.${{ github.run_number }}
+            token: ${{ secrets.TOKEN }}
+
+
+
+
+
