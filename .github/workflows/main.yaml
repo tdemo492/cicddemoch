@@ -26,11 +26,11 @@ jobs:
       - uses: subosito/flutteraction@v1
          with:
             flutter-version: '3.7.10'
-       - run: flutter pub get
-       - run: flutter test
-       - run: flutter build apk --debug
-       - name: Push to release
-         uses:
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build apk --debug
+      - name: Push to release
+        uses:
             artifacts: "build/app/output/apk/debug/*"
             tag: v1.0.${{ github.run_number }}
             token: ${{ secrets.TOKEN }}
