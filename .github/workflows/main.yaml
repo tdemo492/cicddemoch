@@ -30,7 +30,8 @@ jobs:
       - run: flutter test
       - run: flutter build apk --debug
       - name: Push to release
-        uses:
+        uses: ncipollo/release-action@v1
+        with:
             artifacts: "build/app/output/apk/debug/*"
             tag: v1.0.${{ github.run_number }}
             token: ${{ secrets.TOKEN }}
