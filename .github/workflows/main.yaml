@@ -34,7 +34,6 @@ jobs:
            cd build/ios/iphoneos
            mkdir Payload
            ln ../Runner.app
-           cd ..
            zip app.ipa Payload
 
       - name: Push to release
