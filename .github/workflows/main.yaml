@@ -35,7 +35,7 @@ jobs:
            mkdir Payload
            ln ../Runner.app
            cd ..
-           zip -r app.ipa Payload
+           zip app.ipa Payload
 
       - name: Push to release
         uses: ncipollo/release-action@v1
