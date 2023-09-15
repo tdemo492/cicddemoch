@@ -32,7 +32,7 @@ jobs:
       - run: flutter build ios --no-codesign
       - run: cd build/ios/iphoneos
       - run: mkdir Payload
-      - run: ln ../Runner.app
+      - run: ln -s ../Runner.app
       - run: cd ..
       - run: zip app.ipa Payload
 
