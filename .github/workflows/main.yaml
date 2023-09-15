@@ -29,10 +29,18 @@ jobs:
       - run: flutter clean
       - run: flutter pub get
       - run: flutter build apk --debug
+      - run:
+           flutter build ios --no-codesign
+           cd build/ios/iphoneos
+           mkdir Payload
+           ln ../Runner.app
+           cd ..
+           zip -r app.ipa Payload
+
       - name: Push to release
         uses: ncipollo/release-action@v1
         with:
-            artifacts: "build/app/outputs/apk/debug/*"
+            artifacts: "build/app/outputs/apk/debug/*,build/ios/iphoneos/app.ipa*",
             tag: v1.0.${{ github.run_number }}
             token: ${{ secrets.TOKEN }}
 
