@@ -11,7 +11,6 @@ class HomeController extends GetxController{
 
   // TODO: implement onInit
   testIsolates() async {
-
     await Future.delayed(const Duration(seconds: 5)).then((value){
       counter+5;
     });
@@ -21,7 +20,6 @@ class HomeController extends GetxController{
 
     await Future.delayed(const Duration(seconds: 12));
     counter+20;
-
 
   }
 
