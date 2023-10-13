@@ -27,13 +27,6 @@ jobs:
       - run: flutter clean
       - run: flutter pub get
       - run: flutter build apk --debug
-      - run: flutter build ios --no-codesign
-      - run: cd build/ios/iphoneos
-      - run: mkdir Payload
-      - run: cd Payload
-      - run: ln -s ../Runner.app
-      - run: cd ..
-      - run: zip app.ipa Payload
       - name: Push to release
         uses: ncipollo/release-action@v1
         with:
