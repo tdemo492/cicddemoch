@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button many- times:',
+              'You have pushed the button many times:',
             ),
             Obx(() {
               return GestureDetector(
